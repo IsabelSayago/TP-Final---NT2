@@ -1,3 +1,4 @@
+import * as Google from "expo-google-app-auth";
 import * as yup from 'yup';
 
 import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -11,6 +12,8 @@ import { StatusBar } from "expo-status-bar";
 import logo from "../assets/logo.png";
 
 const URL_API = "https://apichathello.herokuapp.com/login";
+const ANDROID = `505663916153-e72rc2raa3b8dmjb34ggbsl62r3rhkiu.apps.googleusercontent.com`
+const IOS = `[505663916153-nngtmvufna0jp4m5enatmpft0o7imb5l.apps.googleusercontent.com](http://505663916153-nngtmvufna0jp4m5enatmpft0o7imb5l.apps.googleusercontent.com/)`
 
 const reviewSchema = yup.object({
   email: yup
@@ -25,6 +28,24 @@ const reviewSchema = yup.object({
 const Login = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [loading, setLoading] = useState(false);
+
+  const signInAsync = async () => {
+    console.log("LoginScreen.js 6 | loggin in");
+    try {
+      const { type, user } = await Google.logInAsync({
+        iosClientId: IOS,
+        androidClientId: ANDROID
+      });
+
+      if (type === "success") {
+        // Then you can use the Google REST API
+        console.log("LoginScreen.js 17 | success, navigating to profile");
+        navigation.navigate("Profile", { user });
+      }
+    } catch (error) {
+      console.log("LoginScreen.js 19 | error with login", error);
+    }
+  }; 
 
   return (
     <ScrollView style={{ width: "100%" }}>
@@ -119,7 +140,7 @@ const Login = ({ navigation }) => {
 
                 <View style={styles.line} />
 
-                <TouchableOpacity style={styles.styledButtonGoogle} onPress={props.handleSubmit}>
+                <TouchableOpacity style={styles.styledButtonGoogle} onPress={signInAsync}>
                   <Fontisto name="google" color={primary} size={25} />
                   <Text style={styles.buttonTextGoogle}>Sign in with Google</Text>
                 </TouchableOpacity>

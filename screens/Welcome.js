@@ -164,20 +164,11 @@ export default function Welcome({ navigation }) {
               <View style={{ flexDirection: "row", marginRight: 20 }}>
                 <Image source={logo} style={styles.logo} />
                 <TouchableOpacity onPress={openImagePicker}>
-                  {selectedImage == null &&
-                    !authData.photoUrl(
-                      <PersonasAvatar
-                        style={{
-                          width: 200,
-                          height: 200,
-                        }}
-                      />
-                    )}
 
                   {selectedImage == null && (
                     <Image
                       source={{
-                        uri: authData.photoUrl,
+                        uri: authData.photoUrl ? authData.photoUrl : "https://i.blogs.es/5efe2c/cap_001/450_1000.jpg",
                       }}
                       style={styles.image}
                     />

@@ -9,10 +9,12 @@ import GlobalContext from "./components/global/context/index";
 import Login from "./screens/Login";
 import { NavigationContainer } from "@react-navigation/native";
 import Profile from "./screens/Profile";
+import { ResponsiveEmbed } from "react-bootstrap";
 import Signup from "./screens/Signup";
 import Welcome from "./screens/Welcome";
 import { createStackNavigator } from "@react-navigation/stack";
 
+const URL_API = "http://localhost:3000/signup"
 export default function App() {
 
   
@@ -20,11 +22,34 @@ export default function App() {
 
   const [authenticated, setAuthenticated] = useState(false);
 
-  //hacer OpenId Protocol
-  const applyAuthentication = (user) =>{
 
-    AsyncStorage.storeData('@userData', user)
-    checkUser()
+  const onSignIn = (googleUser) => {
+    const id_token = googleUser.getAuthResponse().id_token;
+    return id_token
+  }
+
+  
+  async function applyAuthentication (user){
+
+    //const token = onSignIn(user);
+    
+    const response = await fetch(URL_API, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: user.email,
+        //token: token
+      })
+    }).catch(err => {
+      if (err & err.message) {
+        console.log(err.message)
+      }
+    })
+    return response;
+   
   }
 
   const applyLogout = () =>{

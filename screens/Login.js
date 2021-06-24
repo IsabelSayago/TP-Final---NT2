@@ -35,10 +35,7 @@ const Login = ({navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  function onSignIn(googleUser) {
-    const id_token = googleUser.getAuthResponse().id_token;
-
-  }
+  
 
   const signInAsync = async () => {
     console.log("Login");
@@ -52,13 +49,20 @@ const Login = ({navigation}) => {
       const { type, user } = await Google.logInAsync(config);
 
       if (type === "success") {
-        applyAuthentication(user)
-        console.log("Success, navigating to Welcome");
+        
+        //const response = await applyAuthentication(user)
 
-        const token = onSignIn(user);
-        setAuthData(user)
-        await AsyncStorage.storeData('@userData', user)
-        setAuthenticated(true);
+        //if (response.ok) {
+          //const res = await response.json()
+          await AsyncStorage.storeData('@userData', user)
+          setAuthData(user)
+          setAuthenticated(true);
+          
+        //} else {
+          alert("Welcome to Hello!")
+          console.log("Success, navigating to Welcome");
+        //}
+        
       }
     } catch (error) {
       console.log("Error Login", error);

@@ -8,8 +8,6 @@ export default function Room(languageRoom) {
     const [messages, setMessages] = useState([]);
     const socketRef = useRef();
 
-    
-
     useEffect(() => {
         socketRef.current = io(socket_url, {
             query: { languageRoom },

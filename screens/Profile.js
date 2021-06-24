@@ -88,6 +88,7 @@ export default function Profile({ navigation }) {
 
   useEffect(() => {
     bringUserData();
+    
   }, []);
 
   return (
@@ -155,7 +156,9 @@ export default function Profile({ navigation }) {
                 <Button
                   onPress={editUser}
                   title={"Save Changes"}
-                  color="#841584"
+                  color={"#10B981"}
+                  borderRadius={10}
+
                 />
               </View>
             </View>
@@ -173,14 +176,14 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "coral",
+    backgroundColor: "white",
   },
 
   fondo: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#fff0f0",
-    shadowColor: "#000",
+    backgroundColor: "white",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -207,7 +210,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 10,
     flexDirection: "row",
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -225,23 +228,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     marginVertical: 10,
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
     },
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
-
     elevation: 8,
+    borderRadius: 4
   },
 
   flatContainer: {
     width: "100%",
     alignItems: "center",
-    backgroundColor: "coral",
+    backgroundColor: "white",
     flex: 1,
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -257,7 +260,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignItems: "center",
     textAlign: "center",
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -268,11 +271,11 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   fondo2: {
-    backgroundColor: "#fff0f0",
+    backgroundColor: "white",
     flex: 1,
     width: "100%",
     marginBottom: 15,
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,

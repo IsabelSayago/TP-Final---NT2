@@ -51,10 +51,8 @@ export default function Welcome({ navigation }) {
     { id: 4, name: "German", idioma: aleman, check: false },
     { id: 5, name: "Dutch", idioma: holandes, check: false },
   ];
-  const uriPicture =
-    "https://source.boringavatars.com/bauhaus/120/" +
-    authData.name +
-    "?colors=FFFFFF,EDF3A2,6EEEF1,292C37,10B981";
+
+  const uriPicture = "https://source.boringavatars.com/bauhaus/120/" + authData.name + "?colors=FFFFFF,EDF3A2,6EEEF1,292C37,10B981";
 
     
   const [selectedImage, setSelectedImage] = useState(null);
@@ -247,7 +245,7 @@ export default function Welcome({ navigation }) {
   );
 }
 
-//----------------------------------ESTILOS-----------------------------------
+//----------------------------------Styles-----------------------------------
 
 const styles = StyleSheet.create({
   container: {
@@ -263,7 +261,6 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: "contain",
     justifyContent: "center",
-    //width: '100%',
     height: 211,
   },
 
@@ -272,7 +269,6 @@ const styles = StyleSheet.create({
     color: "white",
     backgroundColor: "white",
     justifyContent: "center",
-    //width: "100%",
     textAlign: "center",
     fontWeight: "bold",
     alignItems: "center",
@@ -286,7 +282,6 @@ const styles = StyleSheet.create({
   },
 
   buttonBlue: {
-    // EDITAR PERFOL DE USUARIO
     backgroundColor: "#10B981",
     marginTop: 20,
     borderRadius: 50,
@@ -300,7 +295,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     marginRight: 40,
-    //resizeMode:"contain",
   },
 
   input: {
@@ -314,7 +308,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   continuar: {
-    // CONTINUAR
     marginVertical: 0,
     margin: 20,
     borderRadius: 30,
@@ -392,7 +385,6 @@ const styles = StyleSheet.create({
     flex: 0.82, // en 1 toma toda la pantalla esto controla el alto del modal
     marginTop: "auto", // usando valores empieza a recortar el modal desde abajo
     backgroundColor: "white",
-    //width:'50%' recorta tambien
   },
 
   formik: {

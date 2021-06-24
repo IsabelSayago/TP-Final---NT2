@@ -23,10 +23,6 @@ export default function Chat({ route, navigation }) {
     const { messages, sendMessage } = Room(languageRoom);
     const [newMessage, setNewMessage] = useState("");
 
-    const handleNewMessageChange = (event) => {
-        setNewMessage(event.target.value);
-    };
-
     const handleSendMessage = () => {
         sendMessage(newMessage);
         setNewMessage("");
@@ -35,29 +31,26 @@ export default function Chat({ route, navigation }) {
     const renderItem = ({ item }) => (
         <Item title={item.body} user={item.ownedByCurrentUser} />
     );
+
     const scrollRef = useRef();
+
     return (
         <View style={styles.window}>
             <View >
                 <Text style={styles.titleRoom}> {languageRoom} Room </Text>
             </View>
             <View style={styles.windowChat}>
-                <ScrollView style={styles.messages}   ref={scrollRef}
-      onContentSizeChange={() => scrollRef.current.scrollToEnd({ animated: true })}>
-
-
+                <ScrollView 
+                    style={styles.messages}
+                    ref={scrollRef}
+                    onContentSizeChange={() => scrollRef.current.scrollToEnd({ animated: true })}
+                >
                     <FlatList
                         data={messages}
                         renderItem={renderItem}
                         keyExtractor={(item) => item.id}
-
                     />
-
                 </ScrollView>
-
-
-
-                
                 <View style={styles.row}>
                     <View style={styles.windowInput}>
                         <TextInput
@@ -65,7 +58,6 @@ export default function Chat({ route, navigation }) {
                             type="text"
                             value={newMessage}
                             style={styles.textInput}
-                            // onChangeText={handleNewMessageChange}
                              onChangeText={(text)=>setNewMessage(text)}
                         />
                     </View>

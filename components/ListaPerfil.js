@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     borderRadius: 10,
     flexDirection: "row",
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     alignItems: "center",
-    backgroundColor: "coral",
+    backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
     marginVertical: 10,
-    shadowColor: "#000",
+    shadowColor: "lightgrey",
     shadowOffset: {
       width: 0,
       height: 6,
@@ -60,12 +60,13 @@ const styles = StyleSheet.create({
     shadowRadius: 7.49,
 
     elevation: 8,
+    borderRadius: 4
   },
 
   flatContainer: {
     width: "100%",
     alignItems: "center",
-    backgroundColor: "coral",
+    backgroundColor: "white",
     flex: 1,
   },
 });

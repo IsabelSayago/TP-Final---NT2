@@ -22,7 +22,6 @@ import {
 import AsyncStorage from "../utils/AsyncStorage";
 import GlobalContext from "../components/global/context/index";
 import { MaterialIcons } from "@expo/vector-icons";
-import { PersonasAvatar } from "react-native-personas-avatar";
 import { StatusBar } from "expo-status-bar";
 import logo from "../assets/logo.png";
 
